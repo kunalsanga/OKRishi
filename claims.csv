@@ -1,0 +1,501 @@
+id,entity,claim_type
+141,Entity_024,Number of Offices
+400,Entity_037,Number of Offices
+76,Entity_041,Main Competitor
+124,Entity_040,Annual Revenue (USD Millions)
+414,Entity_039,Research Lab Location
+437,Entity_041,CEO
+164,Entity_046,Subscription Price (USD)
+410,Entity_026,Support Email
+184,Entity_019,Recent Award
+487,Entity_023,Regional HQ
+25,Entity_007,Headquarters Neighborhood
+363,Entity_021,Manufacturing Site
+345,Entity_050,Public Listing Year
+111,Entity_003,Core Technology
+260,Entity_044,Major Client
+226,Entity_023,Regional HQ
+389,Entity_019,Subscription Price (USD)
+28,Entity_010,Regional HQ
+65,Entity_042,Flagship Product
+310,Entity_047,Subscription Price (USD)
+382,Entity_032,Annual Revenue (USD Millions)
+191,Entity_005,Research Lab Location
+51,Entity_040,Last Funding Round Year
+50,Entity_042,Founded Year
+101,Entity_024,Annual Revenue (USD Millions)
+88,Entity_043,Partner Organization
+247,Entity_011,Manufacturing Site
+494,Entity_014,Product Launch Year
+23,Entity_042,Customer Satisfaction (score)
+446,Entity_040,Regional HQ
+304,Entity_037,Support Email
+176,Entity_027,Main Competitor
+145,Entity_049,Flagship Product
+392,Entity_031,Annual Revenue (USD Millions)
+162,Entity_031,Manufacturing Site
+126,Entity_029,Primary Market
+495,Entity_035,Employee Count (approx)
+480,Entity_021,Subscription Price (USD)
+326,Entity_011,Flagship Product
+159,Entity_022,Major Client
+180,Entity_035,CEO
+268,Entity_044,Default Currency
+205,Entity_049,Tagline
+277,Entity_048,Flagship Product
+133,Entity_050,Annual Revenue (USD Millions)
+249,Entity_029,Founder
+87,Entity_042,Manufacturing Site
+297,Entity_041,Flagship Product
+314,Entity_009,Tagline
+362,Entity_039,Headquarters Neighborhood
+372,Entity_016,Headquarters Neighborhood
+442,Entity_047,Founder
+350,Entity_002,Subscription Price (USD)
+286,Entity_008,Headquarters Neighborhood
+459,Entity_004,Manufacturing Site
+307,Entity_040,Founded Year
+74,Entity_044,Last Funding Round Year
+67,Entity_046,Default Currency
+183,Entity_046,Headquarters Neighborhood
+491,Entity_023,Default Currency
+481,Entity_023,Number of Offices
+418,Entity_046,Tagline
+293,Entity_036,Number of Offices
+1,Entity_037,Partner Organization
+7,Entity_040,Default Currency
+10,Entity_007,Primary Market
+241,Entity_019,Tagline
+413,Entity_010,Product Launch Year
+150,Entity_029,Support Email
+322,Entity_009,Recent Award
+283,Entity_014,Last Funding Round Year
+265,Entity_024,Partner Organization
+497,Entity_018,Headquarters Neighborhood
+390,Entity_039,Customer Satisfaction (score)
+22,Entity_023,Slogan
+59,Entity_039,Subscription Price (USD)
+383,Entity_032,CEO
+317,Entity_044,Research Lab Location
+292,Entity_046,Founded Year
+44,Entity_004,Support Email
+94,Entity_009,Core Technology
+360,Entity_031,Default Currency
+330,Entity_006,Employee Count (approx)
+125,Entity_049,Slogan
+416,Entity_003,Founder
+305,Entity_030,Major Client
+43,Entity_018,Public Listing Year
+303,Entity_024,Number of Offices
+441,Entity_037,Primary Market
+296,Entity_046,Manufacturing Site
+222,Entity_035,Subscription Price (USD)
+109,Entity_050,Number of Offices
+215,Entity_046,Regional HQ
+448,Entity_044,Primary Market
+117,Entity_045,Regional HQ
+483,Entity_019,Headquarters
+243,Entity_021,Core Technology
+151,Entity_002,Recent Award
+316,Entity_029,Default Currency
+73,Entity_050,Tagline
+377,Entity_021,Public Listing Year
+130,Entity_013,Support Email
+163,Entity_009,Regional HQ
+396,Entity_047,Support Email
+493,Entity_048,Subscription Price (USD)
+41,Entity_031,Default Currency
+231,Entity_026,Slogan
+447,Entity_025,Headquarters Neighborhood
+284,Entity_019,Manufacturing Site
+445,Entity_041,Slogan
+374,Entity_019,Partner Organization
+171,Entity_034,Recent Award
+64,Entity_006,Research Lab Location
+431,Entity_031,Customer Satisfaction (score)
+156,Entity_015,CEO
+373,Entity_007,Founder
+34,Entity_049,Public Listing Year
+333,Entity_009,Main Competitor
+463,Entity_031,Research Lab Location
+420,Entity_030,Headquarters Neighborhood
+434,Entity_008,Recent Award
+453,Entity_027,Headquarters Neighborhood
+200,Entity_005,Support Email
+167,Entity_002,Employee Count (approx)
+246,Entity_046,Recent Award
+485,Entity_035,Partner Organization
+252,Entity_018,Main Competitor
+201,Entity_016,Slogan
+102,Entity_012,Product Launch Year
+381,Entity_033,Default Currency
+157,Entity_021,Headquarters
+425,Entity_040,Slogan
+290,Entity_044,Tagline
+257,Entity_048,Core Technology
+456,Entity_033,Regional HQ
+406,Entity_018,Customer Satisfaction (score)
+300,Entity_013,Major Client
+86,Entity_023,Annual Revenue (USD Millions)
+54,Entity_036,Major Client
+123,Entity_016,Default Currency
+221,Entity_033,Partner Organization
+308,Entity_005,Annual Revenue (USD Millions)
+449,Entity_003,Public Listing Year
+11,Entity_028,Public Listing Year
+432,Entity_002,Support Email
+325,Entity_010,Annual Revenue (USD Millions)
+14,Entity_020,Slogan
+498,Entity_007,Last Funding Round Year
+182,Entity_037,Primary Market
+295,Entity_011,Manufacturing Site
+393,Entity_035,CEO
+496,Entity_036,Manufacturing Site
+21,Entity_050,Support Email
+323,Entity_033,Founder
+423,Entity_040,Tagline
+337,Entity_011,Public Listing Year
+288,Entity_012,Manufacturing Site
+100,Entity_024,CEO
+35,Entity_029,Core Technology
+136,Entity_027,Flagship Product
+187,Entity_037,Recent Award
+358,Entity_004,Flagship Product
+207,Entity_023,Number of Offices
+144,Entity_019,Founded Year
+399,Entity_026,Founder
+460,Entity_009,Research Lab Location
+419,Entity_031,Research Lab Location
+175,Entity_004,Primary Market
+467,Entity_035,Support Email
+475,Entity_020,Primary Market
+122,Entity_044,Slogan
+138,Entity_039,Headquarters Neighborhood
+48,Entity_004,Support Email
+256,Entity_033,Major Client
+351,Entity_041,Number of Offices
+39,Entity_021,Headquarters Neighborhood
+105,Entity_015,Headquarters Neighborhood
+107,Entity_019,Major Client
+285,Entity_032,Product Launch Year
+135,Entity_033,Research Lab Location
+98,Entity_042,Core Technology
+435,Entity_038,Annual Revenue (USD Millions)
+469,Entity_047,Core Technology
+89,Entity_009,Last Funding Round Year
+403,Entity_005,Partner Organization
+261,Entity_029,Founder
+220,Entity_021,Annual Revenue (USD Millions)
+110,Entity_048,Research Lab Location
+174,Entity_020,Headquarters
+161,Entity_003,Annual Revenue (USD Millions)
+397,Entity_049,Partner Organization
+356,Entity_020,Default Currency
+357,Entity_005,Manufacturing Site
+143,Entity_034,Headquarters
+16,Entity_022,Regional HQ
+484,Entity_037,Core Technology
+324,Entity_008,Research Lab Location
+318,Entity_023,Headquarters Neighborhood
+57,Entity_037,Main Competitor
+376,Entity_016,Flagship Product
+248,Entity_029,Support Email
+37,Entity_041,Last Funding Round Year
+78,Entity_022,Headquarters
+273,Entity_024,Partner Organization
+83,Entity_010,Tagline
+232,Entity_029,Partner Organization
+198,Entity_048,CEO
+348,Entity_037,Recent Award
+211,Entity_030,Manufacturing Site
+366,Entity_009,Regional HQ
+470,Entity_042,Major Client
+188,Entity_012,Core Technology
+479,Entity_046,Subscription Price (USD)
+223,Entity_017,Founder
+75,Entity_004,Major Client
+129,Entity_031,Customer Satisfaction (score)
+339,Entity_011,Core Technology
+15,Entity_022,Primary Market
+199,Entity_023,Major Client
+408,Entity_040,Headquarters
+56,Entity_029,Major Client
+139,Entity_017,Founder
+319,Entity_050,Number of Offices
+353,Entity_020,Subscription Price (USD)
+472,Entity_040,Subscription Price (USD)
+321,Entity_012,Regional HQ
+190,Entity_034,Support Email
+63,Entity_022,Manufacturing Site
+13,Entity_006,Partner Organization
+224,Entity_049,Main Competitor
+181,Entity_041,Research Lab Location
+411,Entity_022,Number of Offices
+154,Entity_016,Partner Organization
+430,Entity_037,Annual Revenue (USD Millions)
+250,Entity_047,Support Email
+266,Entity_037,Founder
+500,Entity_016,Primary Market
+18,Entity_033,Main Competitor
+53,Entity_030,Public Listing Year
+62,Entity_007,Major Client
+440,Entity_050,Public Listing Year
+228,Entity_022,Employee Count (approx)
+320,Entity_041,Public Listing Year
+255,Entity_026,Support Email
+386,Entity_016,Product Launch Year
+302,Entity_032,CEO
+108,Entity_007,Research Lab Location
+421,Entity_039,Research Lab Location
+365,Entity_023,Partner Organization
+9,Entity_006,Recent Award
+312,Entity_050,Recent Award
+280,Entity_008,Employee Count (approx)
+462,Entity_021,Core Technology
+225,Entity_013,Annual Revenue (USD Millions)
+426,Entity_020,Public Listing Year
+97,Entity_034,Founded Year
+142,Entity_007,Manufacturing Site
+80,Entity_025,Annual Revenue (USD Millions)
+178,Entity_005,Headquarters
+236,Entity_034,Employee Count (approx)
+340,Entity_040,Slogan
+118,Entity_040,Major Client
+195,Entity_031,Founder
+218,Entity_003,Major Client
+238,Entity_028,Founded Year
+439,Entity_017,Main Competitor
+301,Entity_009,Primary Market
+298,Entity_024,Research Lab Location
+115,Entity_010,Flagship Product
+66,Entity_003,Primary Market
+202,Entity_043,Main Competitor
+92,Entity_025,Main Competitor
+359,Entity_029,Recent Award
+179,Entity_032,Last Funding Round Year
+364,Entity_021,Slogan
+338,Entity_038,Headquarters Neighborhood
+193,Entity_033,Number of Offices
+194,Entity_002,Partner Organization
+230,Entity_024,Recent Award
+196,Entity_041,Partner Organization
+347,Entity_014,Regional HQ
+216,Entity_030,Founder
+70,Entity_011,Support Email
+93,Entity_022,Customer Satisfaction (score)
+210,Entity_050,Core Technology
+468,Entity_044,Regional HQ
+17,Entity_011,Founded Year
+344,Entity_003,Main Competitor
+36,Entity_037,Main Competitor
+466,Entity_035,Tagline
+278,Entity_032,Research Lab Location
+33,Entity_049,Public Listing Year
+177,Entity_040,Default Currency
+217,Entity_019,Product Launch Year
+24,Entity_010,Primary Market
+38,Entity_021,Main Competitor
+370,Entity_030,Headquarters
+2,Entity_046,Main Competitor
+131,Entity_044,Public Listing Year
+203,Entity_007,Regional HQ
+12,Entity_026,Research Lab Location
+367,Entity_024,Research Lab Location
+237,Entity_006,Slogan
+287,Entity_005,Default Currency
+30,Entity_005,Flagship Product
+417,Entity_003,Headquarters Neighborhood
+234,Entity_032,Manufacturing Site
+407,Entity_040,Core Technology
+263,Entity_016,Regional HQ
+68,Entity_029,Research Lab Location
+486,Entity_026,Customer Satisfaction (score)
+29,Entity_049,Main Competitor
+336,Entity_033,Main Competitor
+262,Entity_009,Founded Year
+47,Entity_029,Founder
+251,Entity_040,Recent Award
+380,Entity_011,Subscription Price (USD)
+106,Entity_010,Founded Year
+60,Entity_033,Headquarters Neighborhood
+227,Entity_004,Main Competitor
+267,Entity_039,Headquarters Neighborhood
+398,Entity_024,Founder
+85,Entity_043,Headquarters Neighborhood
+77,Entity_022,Founded Year
+275,Entity_018,Primary Market
+412,Entity_024,Regional HQ
+104,Entity_032,Product Launch Year
+427,Entity_022,Research Lab Location
+281,Entity_050,Employee Count (approx)
+458,Entity_048,Slogan
+422,Entity_009,Tagline
+289,Entity_029,Founded Year
+40,Entity_029,Founded Year
+186,Entity_023,Primary Market
+271,Entity_005,Public Listing Year
+443,Entity_038,Subscription Price (USD)
+270,Entity_029,Regional HQ
+42,Entity_041,Annual Revenue (USD Millions)
+306,Entity_036,Headquarters Neighborhood
+127,Entity_035,Primary Market
+112,Entity_022,Regional HQ
+341,Entity_039,Tagline
+276,Entity_008,CEO
+488,Entity_010,Annual Revenue (USD Millions)
+482,Entity_047,Employee Count (approx)
+213,Entity_012,Major Client
+192,Entity_035,Research Lab Location
+311,Entity_034,Recent Award
+433,Entity_022,Core Technology
+79,Entity_036,Core Technology
+391,Entity_042,Core Technology
+428,Entity_033,Number of Offices
+113,Entity_040,Headquarters Neighborhood
+114,Entity_039,Partner Organization
+315,Entity_042,Founded Year
+189,Entity_043,Founded Year
+409,Entity_009,Headquarters
+402,Entity_036,Annual Revenue (USD Millions)
+369,Entity_021,Primary Market
+354,Entity_016,Major Client
+160,Entity_010,Headquarters Neighborhood
+361,Entity_014,Tagline
+258,Entity_011,CEO
+352,Entity_019,Main Competitor
+401,Entity_013,Support Email
+82,Entity_043,Last Funding Round Year
+158,Entity_046,Main Competitor
+239,Entity_028,Last Funding Round Year
+61,Entity_004,Default Currency
+342,Entity_037,Founder
+32,Entity_032,Default Currency
+385,Entity_033,Default Currency
+355,Entity_044,Partner Organization
+185,Entity_001,Last Funding Round Year
+478,Entity_014,Manufacturing Site
+387,Entity_038,Support Email
+6,Entity_011,Major Client
+461,Entity_014,Number of Offices
+457,Entity_040,Subscription Price (USD)
+299,Entity_015,Headquarters
+155,Entity_006,Support Email
+169,Entity_010,Number of Offices
+137,Entity_013,Major Client
+229,Entity_008,Major Client
+121,Entity_027,Support Email
+197,Entity_024,Employee Count (approx)
+134,Entity_050,Partner Organization
+4,Entity_008,Partner Organization
+128,Entity_020,Major Client
+166,Entity_001,Founded Year
+474,Entity_018,Number of Offices
+72,Entity_025,Recent Award
+95,Entity_045,Customer Satisfaction (score)
+49,Entity_019,Founded Year
+499,Entity_048,Public Listing Year
+206,Entity_009,Founder
+45,Entity_033,Founded Year
+168,Entity_014,Customer Satisfaction (score)
+264,Entity_042,Support Email
+219,Entity_013,Founder
+208,Entity_022,Customer Satisfaction (score)
+328,Entity_015,Support Email
+313,Entity_037,Founded Year
+454,Entity_027,Manufacturing Site
+424,Entity_011,Partner Organization
+471,Entity_045,Employee Count (approx)
+346,Entity_017,Main Competitor
+438,Entity_039,Subscription Price (USD)
+152,Entity_004,Partner Organization
+405,Entity_049,Number of Offices
+173,Entity_019,Primary Market
+378,Entity_047,Tagline
+8,Entity_045,Support Email
+444,Entity_011,Research Lab Location
+489,Entity_003,Annual Revenue (USD Millions)
+132,Entity_029,Default Currency
+332,Entity_036,Employee Count (approx)
+235,Entity_032,Support Email
+375,Entity_040,Recent Award
+84,Entity_006,Public Listing Year
+490,Entity_046,Founded Year
+58,Entity_013,Tagline
+415,Entity_026,Research Lab Location
+99,Entity_028,Research Lab Location
+140,Entity_042,Subscription Price (USD)
+240,Entity_012,Number of Offices
+259,Entity_010,Last Funding Round Year
+69,Entity_034,Last Funding Round Year
+253,Entity_004,Founded Year
+269,Entity_024,Support Email
+279,Entity_025,Number of Offices
+329,Entity_034,Annual Revenue (USD Millions)
+233,Entity_022,Flagship Product
+146,Entity_018,Default Currency
+172,Entity_008,Regional HQ
+55,Entity_048,Founder
+309,Entity_026,Manufacturing Site
+291,Entity_043,Support Email
+153,Entity_033,Support Email
+5,Entity_002,Tagline
+455,Entity_014,Recent Award
+149,Entity_015,Customer Satisfaction (score)
+384,Entity_006,Partner Organization
+96,Entity_048,Core Technology
+254,Entity_043,Main Competitor
+404,Entity_033,Default Currency
+204,Entity_038,Slogan
+477,Entity_019,Manufacturing Site
+19,Entity_008,Research Lab Location
+91,Entity_020,Number of Offices
+429,Entity_032,Manufacturing Site
+452,Entity_029,Tagline
+214,Entity_009,Founded Year
+90,Entity_046,Founded Year
+20,Entity_033,Product Launch Year
+436,Entity_047,Manufacturing Site
+371,Entity_018,Default Currency
+379,Entity_013,Regional HQ
+274,Entity_021,Main Competitor
+119,Entity_011,Slogan
+294,Entity_019,Annual Revenue (USD Millions)
+473,Entity_013,Primary Market
+46,Entity_020,Default Currency
+394,Entity_007,Recent Award
+465,Entity_012,Default Currency
+31,Entity_050,Main Competitor
+331,Entity_013,Main Competitor
+147,Entity_033,Headquarters Neighborhood
+165,Entity_029,Last Funding Round Year
+148,Entity_028,Founded Year
+388,Entity_004,Founder
+103,Entity_022,Regional HQ
+334,Entity_020,Last Funding Round Year
+245,Entity_029,Last Funding Round Year
+244,Entity_019,Annual Revenue (USD Millions)
+450,Entity_045,Headquarters
+451,Entity_013,CEO
+335,Entity_035,Founded Year
+209,Entity_042,Flagship Product
+81,Entity_017,Slogan
+476,Entity_020,Regional HQ
+282,Entity_046,Default Currency
+3,Entity_027,Annual Revenue (USD Millions)
+71,Entity_024,Annual Revenue (USD Millions)
+395,Entity_009,Employee Count (approx)
+349,Entity_040,Main Competitor
+492,Entity_042,Employee Count (approx)
+242,Entity_007,Founded Year
+368,Entity_036,Headquarters
+170,Entity_047,Last Funding Round Year
+212,Entity_031,Main Competitor
+52,Entity_033,Partner Organization
+27,Entity_012,Last Funding Round Year
+120,Entity_029,Founder
+327,Entity_021,Manufacturing Site
+116,Entity_012,Customer Satisfaction (score)
+272,Entity_009,Research Lab Location
+464,Entity_025,Tagline
+343,Entity_002,Founded Year
+26,Entity_017,Product Launch Year
