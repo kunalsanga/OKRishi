@@ -89,6 +89,10 @@ def extract_answer(entity: str, claim_type: str, webpages: Dict[str, str]) -> Tu
                 return -1 <= n <= 1000000
             return False
 
+        if claim_label == "default currency":
+            # Accept typical currency codes/names (letters and spaces only)
+            return bool(re.fullmatch(r"[A-Za-z ]{3,30}", text))
+
         # Textual fields should not be obvious emails or pure numbers
         if "@" in text:
             return False
@@ -107,6 +111,7 @@ def extract_answer(entity: str, claim_type: str, webpages: Dict[str, str]) -> Tu
         "support email": ["support email"],
         "recent award": ["recent award"],
         "regional hq": ["regional hq", "headquarters"],
+        "headquarters": ["headquarters", "regional hq"],
         "headquarters neighborhood": ["headquarters neighborhood"],
         "manufacturing site": ["manufacturing site"],
         "public listing year": ["public listing year"],
@@ -121,7 +126,9 @@ def extract_answer(entity: str, claim_type: str, webpages: Dict[str, str]) -> Tu
         "flagship product": ["flagship product"],
         "last funding round year": ["last funding round year"],
         "founder": ["founder"],
-        "slogan": ["slogan"],
+        "slogan": ["slogan", "tagline"],
+        "tagline": ["tagline", "slogan"],
+        "default currency": ["default currency", "currency"],
     }
 
     entity_escaped = re.escape(entity)
@@ -145,6 +152,8 @@ def extract_answer(entity: str, claim_type: str, webpages: Dict[str, str]) -> Tu
             (rf"industry observers note\s+{entity_escaped}[^.?!]*?\b{re.escape(field_phrase)}\b[^.?!]*?equal to\s+{val}", 6),
             # simple separators
             (rf"{entity_escaped}[^.?!]*?\b{re.escape(field_phrase)}\b[^.?!]*?[:=]\s*{val}", 4),
+            # dash separators (hyphen, en dash, em dash)
+            (rf"{entity_escaped}[^.?!]*?\b{re.escape(field_phrase)}\b[^.?!]*?[\-–—]\s*{val}", 4),
         ]
         if field_phrase in {"headquarters", "regional hq"}:
             patterns.extend([
@@ -155,20 +164,85 @@ def extract_answer(entity: str, claim_type: str, webpages: Dict[str, str]) -> Tu
             patterns.append((rf"{entity_escaped}[^.?!]*?\bfounded\s+in\s+(?P<val>\d{{4}})", 7))
         return [(re.compile(p, flags=re.IGNORECASE | re.DOTALL), strength) for p, strength in patterns]
 
+    def build_block_patterns(field_phrase: str) -> List[Tuple[re.Pattern, int]]:
+        # Patterns that do NOT require the entity mention, to be used inside the entity's profile block
+        val = r"(?P<val>[A-Za-z0-9@._%+\- '&/]+)"
+        patterns: List[Tuple[str, int]] = [
+            (rf"\b{re.escape(field_phrase)}\b[^.?!]*?\bis\s+{val}", 5),
+            (rf"\b{re.escape(field_phrase)}\b[^.?!]*?[:=]\s*{val}", 5),
+            (rf"\b{re.escape(field_phrase)}\b[^.?!]*?\bequal to\s+{val}", 6),
+            (rf"\b{re.escape(field_phrase)}\b[^.?!]*?\blisted as\s+{val}", 6),
+            # dash separators
+            (rf"\b{re.escape(field_phrase)}\b[^.?!]*?[\-–—]\s*{val}", 5),
+        ]
+        if field_phrase in {"headquarters", "regional hq"}:
+            patterns.extend([
+                (rf"headquartered\s+in\s+{val}", 7),
+                (rf"\bheadquarters\b[^.?!]*?\bas\s+{val}", 5),
+            ])
+        if field_phrase in {"founded year"}:
+            patterns.append((rf"\bfounded\s+in\s+(?P<val>\d{{4}})", 7))
+        return [(re.compile(p, flags=re.IGNORECASE | re.DOTALL), strength) for p, strength in patterns]
+
+    def build_table_patterns(field_phrase: str) -> List[Tuple[re.Pattern, int]]:
+        # HTML table cells where the left cell is the field label
+        val_td = r"(?P<val>[^<]{1,120})"
+        patterns: List[Tuple[str, int]] = [
+            (rf"<t[dh][^>]*>\s*{re.escape(field_phrase)}\s*</t[dh]>\s*</?tr>?\s*<t[dh][^>]*>\s*{val_td}\s*</t[dh]>", 7),
+            (rf"<t[dh][^>]*>\s*{re.escape(field_phrase)}\s*</t[dh]>\s*<t[dh][^>]*>\s*{val_td}\s*</t[dh]>", 6),
+        ]
+        return [(re.compile(p, flags=re.IGNORECASE | re.DOTALL), strength) for p, strength in patterns]
+
+    def strip_html(text: str) -> str:
+        return re.sub(r"<[^>]+>", " ", text)
+
+    def build_snippet(content: str, start: int, end: int, entity_name: str, value_text: str, block_start: Optional[int] = None) -> str:
+        # Try to ensure both entity and value appear in snippet
+        window = 100
+        snippet_start = max(0, start - window)
+        snippet_end = min(len(content), end + window)
+        snippet = normalize_text(content[snippet_start:snippet_end])
+        if (entity_name in snippet) and (value_text in snippet):
+            return snippet
+        # If within a profile block, include header region to get entity mention
+        if block_start is not None:
+            header_start = max(0, block_start - 40)
+            snippet2 = normalize_text(content[header_start:snippet_end])
+            if (entity_name in snippet2) and (value_text in snippet2):
+                return snippet2
+        # Fallback: expand more
+        snippet_start = max(0, start - 160)
+        snippet_end = min(len(content), end + 160)
+        return normalize_text(content[snippet_start:snippet_end])
+
+    def extract_entity_block(entity_name: str, html: str) -> Optional[Tuple[str, int]]:
+        # Try to locate the profile section for the entity and return (block_text, start_index)
+        header_pat = re.compile(rf"Profile:\s*{re.escape(entity_name)}", re.IGNORECASE)
+        m = header_pat.search(html)
+        if not m:
+            return None
+        start_idx = m.start()
+        # Find an end boundary: next </article> after start, or next Profile:, or end of doc
+        end_article = html.find("</article>", start_idx)
+        next_profile_m = re.search(r"\bProfile:\s*Entity_\d+", html[m.end():], re.IGNORECASE)
+        end_profile = (m.end() + next_profile_m.start()) if next_profile_m else -1
+        candidates = [idx for idx in [end_article, end_profile, len(html)] if idx != -1]
+        end_idx = min(candidates) if candidates else len(html)
+        return html[start_idx:end_idx], start_idx
+
     # Collect candidates across pages
     candidates: List[Dict[str, Any]] = []
     for filename, content in webpages.items():
         if entity.lower() not in content.lower():
             continue
+        # 1) Strong patterns requiring entity mention
         for alias in field_aliases:
             for pattern, strength in build_patterns(alias):
                 for m in pattern.finditer(content):
                     raw_value = m.group("val")
                     value_clean = normalize_text(re.sub(r"[\s\.,;:]+$", "", raw_value))
                     start, end = m.span()
-                    snippet_start = max(0, start - 80)
-                    snippet_end = min(len(content), end + 80)
-                    snippet = normalize_text(content[snippet_start:snippet_end])
+                    snippet = build_snippet(content, start, end, entity, value_clean)
                     value_final = cast_if_numeric(value_clean, claim_norm)
                     if is_valid_by_type(str(value_final), claim_norm):
                         candidates.append({
@@ -177,6 +251,43 @@ def extract_answer(entity: str, claim_type: str, webpages: Dict[str, str]) -> Tu
                             "strength": strength,
                             "file": filename,
                         })
+        # 2) Within the entity's profile block, allow looser field-only patterns
+        block = extract_entity_block(entity, content)
+        if block:
+            block_text, block_start = block
+            for alias in field_aliases:
+                # table patterns first (stronger)
+                for pattern, strength in build_table_patterns(alias):
+                    for m in pattern.finditer(block_text):
+                        raw_value = m.group("val")
+                        value_clean = normalize_text(re.sub(r"[\s\.,;:]+$", "", strip_html(raw_value)))
+                        start = block_start + m.start()
+                        end = block_start + m.end()
+                        snippet = build_snippet(content, start, end, entity, value_clean, block_start=block_start)
+                        value_final = cast_if_numeric(value_clean, claim_norm)
+                        if is_valid_by_type(str(value_final), claim_norm):
+                            candidates.append({
+                                "value": value_final,
+                                "snippet": snippet,
+                                "strength": 7,
+                                "file": filename,
+                            })
+                for pattern, strength in build_block_patterns(alias):
+                    for m in pattern.finditer(block_text):
+                        raw_value = m.group("val")
+                        value_clean = normalize_text(re.sub(r"[\s\.,;:]+$", "", raw_value))
+                        # Map snippet to original content coordinates
+                        start = block_start + m.start()
+                        end = block_start + m.end()
+                        snippet = build_snippet(content, start, end, entity, value_clean, block_start=block_start)
+                        value_final = cast_if_numeric(value_clean, claim_norm)
+                        if is_valid_by_type(str(value_final), claim_norm):
+                            candidates.append({
+                                "value": value_final,
+                                "snippet": snippet,
+                                "strength": max(4, strength - 1),
+                                "file": filename,
+                            })
 
     # Specialized fallback for support email
     if not candidates and claim_norm == "support email":
@@ -199,7 +310,7 @@ def extract_answer(entity: str, claim_type: str, webpages: Dict[str, str]) -> Tu
                                 "file": filename,
                             })
 
-    if not candidates and claim_norm in {"regional hq"}:
+    if not candidates and claim_norm in {"regional hq", "headquarters"}:
         hq_pat = re.compile(
             rf"{entity_escaped}[^.?!]*?headquartered\s+in\s+(?P<val>[A-Za-z0-9 .\-'/&]+)",
             re.IGNORECASE | re.DOTALL,
@@ -248,10 +359,11 @@ def extract_answer(entity: str, claim_type: str, webpages: Dict[str, str]) -> Tu
     occurrences = counts[chosen_key]
     strength = best_strength[chosen_key]
     diversity = len(files_seen[chosen_key])
-    confidence = 70 + (strength * 3) + min(15, (occurrences - 1) * 4) + min(10, (diversity - 1) * 3)
+    # Base 65; upweight by strength, occurrences, diversity; penalize conflicts
+    confidence = 65 + (strength * 4) + min(20, (occurrences - 1) * 5) + min(12, (diversity - 1) * 4)
     if num_distinct > 1:
-        confidence -= 10
-    confidence = max(50, min(98, confidence))
+        confidence -= min(15, (num_distinct - 1) * 5)
+    confidence = max(45, min(98, confidence))
 
     # Cast back to numeric if possible for final value
     final_value = candidates[0]["value"]
